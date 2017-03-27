@@ -109,5 +109,9 @@
 
 // lists
 var arrayToList = function arr2L(arr) {
-  
+  var list = {};
+  for (var i = 0; i < arr.length; i++) {
+    list.value = arr[i];
+    
+  }
 }
