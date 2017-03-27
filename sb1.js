@@ -109,5 +109,11 @@
 
 // lists
 var arrayToList = function arr2L(arr) {
-  
+  var list = {}, inArr = arr;
+  for (var i = inArr.length; i > 0; i--) {
+    list = {value: inArr.pop(), rest: list};
+  }
+  console.log(list);
+  return list;
 }
+var newList = arrayToList([1,2,3,4,"cheese","grits","sanctions",8]);
