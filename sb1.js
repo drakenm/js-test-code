@@ -117,3 +117,8 @@ var arrayToList = function arr2L(arr) {
   return list;
 }
 var newList = arrayToList([1,2,3,4,"cheese","grits","sanctions",8]);
+
+var listToArray = function l2Arr(listObj) {
+  var arr = [], inObj = listObj;
+  
+}
