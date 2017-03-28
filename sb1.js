@@ -111,7 +111,7 @@
 var arrayToList = function arr2L(arr) {
   var list = {}, inArr = arr;
   for (var i = inArr.length; i > 0; i--) {
-    list = {value: inArr.pop(), rest: list};
+    list = {value: inArr.pop(), rest: (Object.keys(list).length === 0 && inObj.rest.constructor === Object ? null : list) };
   }
   console.log(list);
   return list;
