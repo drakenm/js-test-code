@@ -108,12 +108,37 @@
 //console.log("old myNArr reversed in place: ",myNArr);
 
 // lists
-var arrayToList = function arr2L(arr) {
+var arrayToList = function makeArrayFromList(arr) {
   var list = {}, inArr = arr;
   for (var i = inArr.length; i > 0; i--) {
-    list = {value: inArr.pop(), rest: list};
+    list = {value: inArr.pop(), rest: (Object.keys(list).length === 0 && list.constructor === Object ? null : list) };
   }
-  console.log(list);
   return list;
 }
-var newList = arrayToList([1,2,3,4,"cheese","grits","sanctions",8]);
+console.log("LIST: ",arrayToList([10,20]));
+
+var listToArray = function makeListFromArray(listObj) {
+  var arr = [];
+  for (var node = listObj; node; node = node.rest) {
+    arr.push(node.value);
+  }
+  return arr;
+}
+console.log("ARRAY: ",listToArray(arrayToList([10,20,30])));
+
+var prependToList = function prependElement2List(value, list) {
+  return {value: value, rest: list};
+}
+console.log(prependToList(10, prependToList(20, null)));
+
+var getListValue = function nthValueOfList(list, index) {
+  var defInd = index || 0; // return first value
+  if (defInd > 0 && list.rest !== null) {
+    return getListValue(list.rest, defInd - 1);
+  } else if (defInd === 0) {
+    return list.value;
+  } else {
+    return undefined;
+  }
+}
+console.log("VALUE: ",getListValue(arrayToList([10,20,30]),2))
