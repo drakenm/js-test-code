@@ -113,10 +113,9 @@ var arrayToList = function makeArrayFromList(arr) {
   for (var i = inArr.length; i > 0; i--) {
     list = {value: inArr.pop(), rest: (Object.keys(list).length === 0 && list.constructor === Object ? null : list) };
   }
-  console.log(list);
   return list;
 }
-var newList = arrayToList([1,2,3,4,"cheese","grits","sanctions",8]);
+console.log("LIST: ",arrayToList([10,20]));
 
 var listToArray = function makeListFromArray(listObj) {
   var arr = [], inObj = listObj;
@@ -125,11 +124,9 @@ var listToArray = function makeListFromArray(listObj) {
     inObj = inObj.rest;
   }
   arr.push(inObj.value);
-  console.log(arr);
   return arr;
 }
-var myObj = newList;
-var newArr = listToArray(myObj);
+console.log("ARRAY: ",listToArray(arrayToList([10,20,30])));
 
 var prependToList = function prependElement2List(value, list) {
   
