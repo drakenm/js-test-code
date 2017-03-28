@@ -134,13 +134,13 @@ var prependToList = function prependElement2List(value, list) {
 console.log(prependToList(10, prependToList(20, null)));
 
 var getListValue = function nthValueOfList(list, index) {
-  var defaultIndex = index || 0; // return first value
-  if (index > 0 && list.rest !== null) {
-    return getListValue(list.rest, index - 1);
-  } else if (list.rest !== null) {
+  var defInd = index || 0; // return first value
+  if (defInd > 0 && list.rest !== null) {
+    return getListValue(list.rest, defInd - 1);
+  } else if (defInd === 0) {
     return list.value;
   } else {
     return undefined;
   }
 }
-console.log(getListValue(arrayToList([10,20,30]),0))
+console.log("VALUE: ",getListValue(arrayToList([10,20,30]),2))
