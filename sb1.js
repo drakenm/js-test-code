@@ -146,18 +146,21 @@ console.log("VALUE: ",getListValue(arrayToList([10,20,30]),2))
 var myObj = {here: {is: "an"}, object: 3};
 var myNewObj = {here: {is: "an"}, object: 2};
 var deepEq = function deepEqual(val1, val2) {
-  if ( (val1 !== undefined || val2 !== undefined) && typeof val1 === "object" && typeof val2 === "object" && (val1 !== null || val2 !== null) ) {
-    for (var key in val1) {
-      if ( (val1[key] !== undefined || val2[key] !== undefined) && typeof val1[key] === "object" && typeof val2[key] === "object" && (val1[key] !== null || val2[key] !== null)) {
-        return deepEq(val1[key],val2[key]);
-      } else if (val1[key] === val2[key]) {
-        return deepEq(val1[key],val2[key]);
+  if (typeof val1 === "object" && val1 !== null && typeof val2 === "object" && val2 !== null) {
+    if (val1.length === val2.length) {
+      for (var key1 in val1) {
+        for (var key2 in val2) {
+          if (key1 === key2) {
+            return deepEq(val1[key1], val2[key2]);
+          }
+        }
       }
+    } else {
+      return false;
     }
-  } else if (val1 === val2) {
-    return true;
-  } else {
+  } else if (val1 !== val2) {
     return false;
   }
+  return true;
 }
 console.log(deepEq(myObj,myNewObj));
