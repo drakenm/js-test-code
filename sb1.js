@@ -128,9 +128,5 @@ var listToArray = function l2Arr(listObj) {
   console.log(arr);
   return arr;
 }
-var myObj = {
-  value: 1, rest: {
-    value: 2, rest: {
-      value: 3, rest: null
-    }}};
+var myObj = newList;
 var newArr = listToArray(myObj);
