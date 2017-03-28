@@ -131,4 +131,4 @@ console.log("ARRAY: ",listToArray(arrayToList([10,20,30])));
 var prependToList = function prependElement2List(value, list) {
   return {value: value, rest: list};
 }
-console.log(prepend(10, prepend(20, null)));
+console.log(prependToList(10, prependToList(20, null)));
