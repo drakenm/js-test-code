@@ -132,3 +132,15 @@ var prependToList = function prependElement2List(value, list) {
   return {value: value, rest: list};
 }
 console.log(prependToList(10, prependToList(20, null)));
+
+var getListValue = function nthValueOfList(list, index) {
+  var defaultIndex = index || 0; // return first value
+  if (index > 0 && list.rest !== null) {
+    return getListValue(list.rest, index - 1);
+  } else if (list.rest !== null) {
+    return list.value;
+  } else {
+    return undefined;
+  }
+}
+console.log(getListValue(arrayToList([10,20,30]),0))
