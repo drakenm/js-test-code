@@ -142,3 +142,7 @@ var getListValue = function nthValueOfList(list, index) {
   }
 }
 console.log("VALUE: ",getListValue(arrayToList([10,20,30]),2))
+
+var deepEq = function deepEqual(val1, val2) {
+  
+}
