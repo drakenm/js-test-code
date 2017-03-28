@@ -118,12 +118,10 @@ var arrayToList = function makeArrayFromList(arr) {
 console.log("LIST: ",arrayToList([10,20]));
 
 var listToArray = function makeListFromArray(listObj) {
-  var arr = [], inObj = listObj;
-  while ( (inObj.rest !== null ? (Object.keys(inObj.rest).length !== 0 && inObj.rest.constructor === Object) : false) ) {
-    arr.push(inObj.value);
-    inObj = inObj.rest;
+  var arr = [];
+  for (var node = listObj; node; node = node.rest) {
+    arr.push(node.value);
   }
-  arr.push(inObj.value);
   return arr;
 }
 console.log("ARRAY: ",listToArray(arrayToList([10,20,30])));
