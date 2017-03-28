@@ -120,5 +120,21 @@ var newList = arrayToList([1,2,3,4,"cheese","grits","sanctions",8]);
 
 var listToArray = function l2Arr(listObj) {
   var arr = [], inObj = listObj;
-  
+  if (inObj.rest !== null) {
+    while (Object.keys(inObj.rest).length !== 0 && inObj.rest.constructor === Object) {
+      arr.push(inObj.value);
+      inObj = inObj.rest;
+    }
+  } else {
+    
+  }
+  console.log(arr);
+  return arr;
 }
+
+var newArr = listToArray({
+  value: 1, rest: {
+    value: 2, rest: {
+      value: 3, rest: null
+    }
+}});
