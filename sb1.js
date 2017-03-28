@@ -108,7 +108,7 @@
 //console.log("old myNArr reversed in place: ",myNArr);
 
 // lists
-var arrayToList = function arr2L(arr) {
+var arrayToList = function makeArrayFromList(arr) {
   var list = {}, inArr = arr;
   for (var i = inArr.length; i > 0; i--) {
     list = {value: inArr.pop(), rest: (Object.keys(list).length === 0 && list.constructor === Object ? null : list) };
@@ -118,7 +118,7 @@ var arrayToList = function arr2L(arr) {
 }
 var newList = arrayToList([1,2,3,4,"cheese","grits","sanctions",8]);
 
-var listToArray = function l2Arr(listObj) {
+var listToArray = function makeListFromArray(listObj) {
   var arr = [], inObj = listObj;
   while ( (inObj.rest !== null ? (Object.keys(inObj.rest).length !== 0 && inObj.rest.constructor === Object) : false) ) {
     arr.push(inObj.value);
@@ -130,3 +130,7 @@ var listToArray = function l2Arr(listObj) {
 }
 var myObj = newList;
 var newArr = listToArray(myObj);
+
+var prependToList = function prependElement2List(value, list) {
+  
+}
