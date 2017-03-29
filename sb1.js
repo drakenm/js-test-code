@@ -150,8 +150,12 @@ var deepEq = function deepEqual(val1, val2) {
     if (val1.length === val2.length) {
       for (var key1 in val1) {
         for (var key2 in val2) {
-          if (key1 === key2) {
+          if (key1 !== key2) {
+            return false;
+          } else if (typeof val1[key1] === "object" && val1[key1] !== null && typeof val2[key2] === "object" && val2[key2] !== null) {
             return deepEq(val1[key1], val2[key2]);
+          } else if (val1[key1] !== val2[key2]) {
+            return false;
           }
         }
       }
