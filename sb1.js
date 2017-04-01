@@ -143,38 +143,43 @@
 //}
 //console.log("VALUE: ",getListValue(arrayToList([10,20,30]),2))
 
-var obj1 = {here: {is: "an"}, object: 3};
-var obj2 = {here: {is: "an"}, object: 2};
-var obj3 = {here: {is: "na"}, object: 2};
-var deepEq = function deepEqual(val1, val2) {
-  // make sure we are comparing objects that are not null
-  if ( (typeof val1 !== "object" || val1 === null) || (typeof val2 !== "object" || val2 === null) )
-    return false;
-  
-  // compare length
-  if (val1.length !== val2.length)
-    return false;
-  
-  //compare keys
-  var val1Keys = Object.keys(val1), val2Keys = Object.keys(val2);
-  for (var i = 0, j = val1Keys.length; i < j; i++) {
-    if (val1Keys[i] !== val2Keys[i])
-      return false;
-  }
-  
-  // recurse for objects or simply compare normal values
-  for (var key in val1) {
-    if (typeof val1[key] === "object" && val1[key] !== null && typeof val2[key] === "object" && val2 !== null) {
-      if (!deepEq(val1[key],val2[key])) // use recursion if an object is encountered
-        return false;
-    } else if (val1[key] !== val2[key]) // normal value comparison
-      return false;
-  }
-  
-  // objects are likely identicle
-  return true;
-}
-console.log(deepEq(obj1,obj1));
-console.log(deepEq(obj1,obj2));
-console.log(deepEq(obj1,obj3));
-console.log(deepEq(obj2,obj3));
+//var obj1 = {here: {is: "an"}, object: 3};
+//var obj2 = {here: {is: "an"}, object: 2};
+//var obj3 = {here: {is: "na"}, object: 2};
+//var deepEq = function deepEqual(val1, val2) {
+//  // make sure we are comparing objects that are not null
+//  if ( (typeof val1 !== "object" || val1 === null) || (typeof val2 !== "object" || val2 === null) )
+//    return false;
+//  
+//  // compare length
+//  if (val1.length !== val2.length)
+//    return false;
+//  
+//  //compare keys
+//  var val1Keys = Object.keys(val1), val2Keys = Object.keys(val2);
+//  for (var i = 0, j = val1Keys.length; i < j; i++) {
+//    if (val1Keys[i] !== val2Keys[i])
+//      return false;
+//  }
+//  
+//  // recurse for objects or simply compare normal values
+//  for (var key in val1) {
+//    if (typeof val1[key] === "object" && val1[key] !== null && typeof val2[key] === "object" && val2 !== null) {
+//      if (!deepEq(val1[key],val2[key])) // use recursion if an object is encountered
+//        return false;
+//    } else if (val1[key] !== val2[key]) // normal value comparison
+//      return false;
+//  }
+//  
+//  // objects are likely identicle
+//  return true;
+//}
+//console.log(deepEq(obj1,obj1));
+//console.log(deepEq(obj1,obj2));
+//console.log(deepEq(obj1,obj3));
+//console.log(deepEq(obj2,obj3));
+
+
+/****************************************
+*      CH5 HIGHER-ORDER FUNCTIONS       *
+****************************************/
