@@ -143,8 +143,9 @@
 //}
 //console.log("VALUE: ",getListValue(arrayToList([10,20,30]),2))
 
-var myObj = {here: {is: "an"}, object: 3};
-var myNewObj = {here: {is: "an"}, object: 2};
+var obj1 = {here: {is: "an"}, object: 3};
+var obj2 = {here: {is: "an"}, object: 2};
+var obj3 = {here: {is: "na"}, object: 2};
 var deepEq = function deepEqual(val1, val2) {
   // make sure we are comparing objects that are not null
   if ( (typeof val1 !== "object" || val1 === null) || (typeof val2 !== "object" || val2 === null) )
@@ -173,4 +174,7 @@ var deepEq = function deepEqual(val1, val2) {
   // objects are likely identicle
   return true;
 }
-console.log(deepEq(myObj,myObj));
+console.log(deepEq(obj1,obj1));
+console.log(deepEq(obj1,obj2));
+console.log(deepEq(obj1,obj3));
+console.log(deepEq(obj2,obj3));
