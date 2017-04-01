@@ -146,25 +146,31 @@ console.log("VALUE: ",getListValue(arrayToList([10,20,30]),2))
 var myObj = {here: {is: "an"}, object: 3};
 var myNewObj = {here: {is: "an"}, object: 2};
 var deepEq = function deepEqual(val1, val2) {
-  if (typeof val1 === "object" && val1 !== null && typeof val2 === "object" && val2 !== null) {
-    if (val1.length === val2.length) {
-      for (var key1 in val1) {
-        for (var key2 in val2) {
-          if (key1 !== key2) {
-            return false;
-          } else if (typeof val1[key1] === "object" && val1[key1] !== null && typeof val2[key2] === "object" && val2[key2] !== null) {
-            return deepEq(val1[key1], val2[key2]);
-          } else if (val1[key1] !== val2[key2]) {
-            return false;
-          }
-        }
-      }
-    } else {
-      return false;
-    }
-  } else if (val1 !== val2) {
+  // make sure we are comparing objects that are not null
+  if (typeof val1 === "object" || val1 === null && typeof val2 === "object" || val2 === null)
     return false;
+  
+  // compare length
+  if (val1.length !== val2.length)
+    return false;
+  
+  //compare keys
+  var val1Keys = Object.keys(val1), val2Keys = Object.keys(val2);
+  for (var i = 0, j = val1Keys.length; i < j; i++) {
+    if (val1Keys[i] !== val2Keys[i])
+      return false;
   }
+  
+  // use recursion if an object is encountered
+  for (var key in val1) {
+    if (typeof val1[key] === "object" && val1[key] !== null && typeof val2[key] === "object" && val2 !== null) {
+      if (!deepEq(val1[key],val2[key]))
+        return false;
+    } else if (val1[key] !== val2[key])
+      return false;
+  }
+  
+  // objects are probably identicle
   return true;
 }
 console.log(deepEq(myObj,myNewObj));
