@@ -147,7 +147,7 @@ var myObj = {here: {is: "an"}, object: 3};
 var myNewObj = {here: {is: "an"}, object: 2};
 var deepEq = function deepEqual(val1, val2) {
   // make sure we are comparing objects that are not null
-  if ( (typeof val1 === "object" || val1 === null) && (typeof val2 === "object" || val2 === null) )
+  if ( (typeof val1 !== "object" || val1 === null) || (typeof val2 !== "object" || val2 === null) )
     return false;
   
   // compare length
