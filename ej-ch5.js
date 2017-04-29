@@ -45,6 +45,9 @@ var ANCESTRY_FILE = "[\n  " + [
   '{"name": "Jacobus Bernardus van Brussel", "sex": "m", "born": 1736, "died": 1809, "father": "Jan van Brussel", "mother": "Elisabeth Haverbeke"}'
 ].join(",\n  ") + "\n]";
 
+/*
+**    CHAPTER EXAMPLES
+*/
 function forEach(array, action) {
   for (var i = 0; i < array.length; i++)
     action(array[i]);
@@ -84,3 +87,4 @@ console.log("DEFAULT REDUCE FXN: ",ancestry.reduce(function(min, cur) {
   if (cur.born < min.born) return cur;
   else return min;
 }));
+
