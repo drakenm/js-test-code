@@ -88,3 +88,4 @@ console.log("DEFAULT REDUCE FXN: ",ancestry.reduce(function(min, cur) {
   else return min;
 }));
 
+// FLATTENING
